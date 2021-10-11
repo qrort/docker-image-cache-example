@@ -44,4 +44,7 @@ jobs:
         name: Load Docker image
         run: |
           docker load --input /tmp/base_env.tar
-          ./build.sh
+          docker ls
+#      -
+#        name: Run executable
+#        uses: ./.github/actions/run-executable
