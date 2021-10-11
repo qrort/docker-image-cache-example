@@ -25,6 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: base_env
+          tags: base_env
           path: /tmp/base_env.tar
 
   run:
