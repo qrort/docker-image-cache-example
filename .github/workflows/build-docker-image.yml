@@ -73,5 +73,6 @@ jobs:
           export TAG=$(echo $GITHUB_SHA | head -c7)
           docker run -ti --mount type=bind,source="$(pwd)",target=/tmp/repo base_env:$TAG bash
           cd /tmp/repo
+          pwd
           ls
           ./build.sh
