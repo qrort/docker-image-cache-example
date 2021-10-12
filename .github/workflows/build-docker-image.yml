@@ -71,7 +71,7 @@ jobs:
           ls
           docker load --input /tmp/base_env.tar
           export TAG=$(echo $GITHUB_SHA | head -c7)
-          docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace base_env:$TAG bash
-          cd /github/workspace
+          docker run -i --mount type=bind,source="$(pwd)",target=/tmp/repo base_env:$TAG bash
+          cd /tmp/repo
           ls
           ./build.sh
