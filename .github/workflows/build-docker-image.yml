@@ -68,4 +68,5 @@ jobs:
           docker load --input /tmp/base_env.tar
           docker image ls -a
           docker run --name base_env --rm -i ubuntu bash
+          cd /github/workspace
           ./build.sh
