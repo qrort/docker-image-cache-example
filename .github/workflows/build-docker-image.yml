@@ -68,7 +68,7 @@ jobs:
       - name: Load Docker image
         run: |
           docker load --input /tmp/base_env.tar
-          TAG=$(echo $GITHUB_SHA | head -c7)
+          export TAG=$(echo $GITHUB_SHA | head -c7)
           docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace base_env:$TAG bash
           cd /github/workspace
           ls
