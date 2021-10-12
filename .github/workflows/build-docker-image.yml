@@ -60,3 +60,5 @@ jobs:
         run: |
           docker load --input /tmp/base_env.tar
           docker image ls -a
+          docker exec -ti base_env:latest bash
+          ./build.sh
