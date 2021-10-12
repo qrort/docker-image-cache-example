@@ -67,10 +67,9 @@ jobs:
           path: /tmp
       - name: Load Docker image
         run: |
-          docker load --input /tmp/base_env.tar | sed -n 's/^Loaded image ID: sha256:\([0-9a-f]*\).*/\1/p' > imagename.txt
-          export IMAGE_NAME="$(cat imagename.txt)"
-          echo $IMAGE_NAME
-          docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace $IMAGE_NAME bash
+          docker load --input /tmp/base_env.tar
+          TAG=$(echo $GITHUB_SHA | head -c7)
+          docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace base_env:$TAG bash
           cd /github/workspace
           ls
           ./build.sh
