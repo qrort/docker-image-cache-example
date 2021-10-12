@@ -55,7 +55,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: base_env
-          path: /tmp/base_env.tar
+          path: /tmp
       - name: Load Docker image
         run: |
           docker load --input /tmp/base_env.tar
