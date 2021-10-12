@@ -67,9 +67,9 @@ jobs:
           path: /tmp
       - name: Load Docker image
         run: |
-          docker load --input /tmp/base_env.tar
-          docker image ls -a
-          docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace base_env bash
+          docker load -i /tmp/base_env.tar |
+          sed -n 's/^Loaded image ID: sha256:\([0-9a-f]*\).*/\1/p' > imagename.txt
+          docker run -i --mount type=bind,source="$(pwd)",target=/github/workspace "$(cat imagename.txt)" bash
           cd /github/workspace
           ls
           ./build.sh
