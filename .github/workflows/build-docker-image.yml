@@ -45,7 +45,8 @@ jobs:
         name: Load Docker image
         run: |
           docker load --input /tmp/base_env.tar
-          docker image ls | grep base_env
+          docker image ls > imagels.txt
+          grep "base_env" imagels.txt
 #      -
 #        name: Run executable
 #        uses: ./.github/actions/run-executable
