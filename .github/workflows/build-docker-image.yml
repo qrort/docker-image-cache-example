@@ -67,5 +67,5 @@ jobs:
         run: |
           docker load --input /tmp/base_env.tar
           docker image ls -a
-          docker run --name base_env --rm -i -t ubuntu bash
+          docker run --name base_env --rm -i ubuntu bash
           ./build.sh
