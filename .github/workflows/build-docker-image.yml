@@ -69,7 +69,7 @@ jobs:
         run: |
           docker load --input /tmp/base_env.tar
           docker image ls -a
-          docker run --name base_env --rm -i --mount type=bind,source="$(pwd)",target=/github/workspace bash
+          docker run --name base_env --rm -i --mount type=bind,source="$(pwd)",target=/github/workspace ubuntu bash
           cd /github/workspace
           ls
           ./build.sh
