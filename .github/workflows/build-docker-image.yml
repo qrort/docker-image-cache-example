@@ -39,10 +39,10 @@ jobs:
 #          key: ${{ runner.os }}-buildx-${{ github.sha }}
 #          restore-keys: |
 #            ${{ runner.os }}-buildx
-       - name: build and push
-         run: |
-           docker build -t ${{env.REGISTRY}}/base_env:v1 - < dockerfiles/Dockerfile
-           docker push ${{env.REGISTRY}}/${{github.owner}}/base_env:v1
+      - name: build and push
+        run: |
+          docker build -t ${{env.REGISTRY}}/base_env:v1 - < dockerfiles/Dockerfile
+          docker push ${{env.REGISTRY}}/${{github.owner}}/base_env:v1
 #      - name: Build image
 #        uses: docker/build-push-action@v2
 #        with:
