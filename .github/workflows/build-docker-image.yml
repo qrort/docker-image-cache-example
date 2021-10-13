@@ -28,9 +28,9 @@ jobs:
 #        with:
 #          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
+#      - name: Set up Docker Buildx
+#        id: buildx
+#        uses: docker/setup-buildx-action@v1
 
 #      - name: Cache Docker layers
 #        uses: actions/cache@v2
@@ -41,7 +41,7 @@ jobs:
 #            ${{ runner.os }}-buildx
       - name: build and push
         run: |
-          docker build -t ${{env.REGISTRY}}/base_env:v1 - < dockerfiles/Dockerfile
+          docker build -t ${{env.REGISTRY}}/base_env:v1 -f dockerfiles/Dockerfile
           docker push ${{env.REGISTRY}}/${{github.owner}}/base_env:v1
 #      - name: Build image
 #        uses: docker/build-push-action@v2
