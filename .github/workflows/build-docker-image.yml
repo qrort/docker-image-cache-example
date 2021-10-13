@@ -43,7 +43,7 @@ jobs:
         run: |
           cd dockerfiles
           docker build -t ${{env.REGISTRY}}/base_env:v1 .
-          docker push ${{env.REGISTRY}}/${{github.owner}}/base_env:v1
+          docker push ${{env.REGISTRY}}/base_env:v1
 #      - name: Build image
 #        uses: docker/build-push-action@v2
 #        with:
